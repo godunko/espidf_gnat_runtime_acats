@@ -1,0 +1,39 @@
+
+with "config/espidf_gnat_runtime_acats_bundle_1_config.gpr";
+
+library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
+
+   for Target use "xtensa-esp32-elf";
+   for Runtime ("Ada") use "../../../runtime";
+
+   for Source_Dirs use ("main/source", "source");
+   for Object_Dir use ".objs";
+   for Library_Name use "adaapplication";
+   for Library_Dir use ".libs";
+   for Library_Interface use ("Application");
+   for Library_Standalone use "encapsulated";
+
+   package Binder is
+      for Switches ("Ada") use
+        ("-Lada",
+         --  Library build: adainit/final renamed to xyzinit/final, implies -n
+         --
+         --  `adafinal` is called from `application.adb`
+         "-D4k",
+         --  Default secondary stack size = nn [kilo|mega] bytes
+         --
+         --  Runtime uses "static" allocation stategy for secondary stacks
+         --  thus size of the secondary stack should be specified.
+         "-Q2");
+         --  Generate nnn additional default-sized secondary stacks
+         --
+         --  Some tasks are created by ESP-IDF, for example, for USB stack,
+         --  IP stack, event handling. If these tasks calls Ada subprograms
+         --  which use secondary stack this number should be adjusted.
+   end Binder;
+
+   package Compiler is
+      for Switches ("Ada") use ("-g", "-O2");
+   end Compiler;
+
+end ESPIDF_GNAT_Runtime_ACATS_Bundle_1;
