@@ -6,7 +6,8 @@ library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
    for Target use "xtensa-esp32-elf";
    for Runtime ("Ada") use "../../../runtime";
 
-   for Source_Dirs use ("main/source", "source");
+   for Source_Dirs use
+     ("main/source", "source", "../support", "../ACATS/support", "../ACATS/a");
    for Object_Dir use ".objs";
    for Library_Name use "adaapplication";
    for Library_Dir use ".libs";
@@ -35,5 +36,36 @@ library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
    package Compiler is
       for Switches ("Ada") use ("-g", "-O2");
    end Compiler;
+
+   package Naming is
+      for Specification ("Version") use "version.a";
+      for Implementation ("A22006B") use "a22006b.ada";
+      for Implementation ("A22006C") use "a22006c.ada";
+      for Implementation ("A22006D") use "a22006d.ada";
+      --  for Implementation ("A26007A") use "a26007a.tst";
+      for Implementation ("A27003A") use "a27003a.ada";
+      for Implementation ("A29003A") use "a29003a.ada";
+      for Implementation ("A2A031A") use "a2a031a.ada";
+      for Implementation ("A33003A") use "a33003a.ada";
+      for Implementation ("A34017C") use "a34017c.ada";
+      for Implementation ("A35101B") use "a35101b.ada";
+      for Implementation ("A35402A") use "a35402a.ada";
+      for Implementation ("A35801F") use "a35801f.ada";
+      for Implementation ("A35902C") use "a35902c.ada";
+      for Implementation ("A38106D") use "a38106d.ada";
+      for Implementation ("A38106E") use "a38106e.ada";
+      for Implementation ("A49027A") use "a49027a.ada";
+      for Implementation ("A49027B") use "a49027b.ada";
+      for Implementation ("A49027C") use "a49027c.ada";
+      for Implementation ("A54B01A") use "a54b01a.ada";
+      for Implementation ("A54B02A") use "a54b02a.ada";
+      for Implementation ("A55B12A") use "a55b12a.ada";
+      for Implementation ("A55B13A") use "a55b13a.ada";
+      for Implementation ("A55B14A") use "a55b14a.ada";
+      for Implementation ("A71004A") use "a71004a.ada";
+      for Implementation ("A73001I") use "a73001i.ada";
+      for Implementation ("A73001J") use "a73001j.ada";
+      for Implementation ("A74105B") use "a74105b.ada";
+   end Naming;
 
 end ESPIDF_GNAT_Runtime_ACATS_Bundle_1;
