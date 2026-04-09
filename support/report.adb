@@ -156,63 +156,64 @@ package body Report is
 
      procedure Put_Event_Trace (Event : in String;
                                 Msg : in String) is
-          -- Put an event trace.
-          File : Ada.Text_IO.File_Type;
+     --       -- Put an event trace.
+     --       File : Ada.Text_IO.File_Type;
      begin
-          if not Generate_Event_Trace_File then
-               return; -- Nothing to do, shouldn't get here.
-          end if;
-          begin
-               Ada.Text_IO.Open (File, Name => Event_Trace_File_Name,
-                    Mode => Ada.Text_IO.Append_File);
-          exception
-               when Ada.Text_IO.Name_Error =>
-                    -- The file doesn't exist, create it.
-                    Ada.Text_IO.Create (File, Name => Event_Trace_File_Name,
-                        Mode => Ada.Text_IO.Out_File);
-                    -- Write a header. This is not strictly necessary,
-                    -- but we do it as it makes it a lot easier to use
-                    -- the .CSV file in an spreadsheet.
-                    Ada.Text_IO.Put_Line (File,
-                                          "Event,Timestamp,Name," &
-                                          "Line,Position,Message");
-          end;
-          Ada.Text_IO.Put (File, Event & ",""" &
-                           Inner_Time_Stamp(Full => True) & """,""" &
-                           Test_Name (1..Test_Name_Len) & """,,,""");
-          declare
-               Msg_Copy : String := Msg;
-          begin
-               for I in Msg_Copy'range loop
-                    if Msg_Copy(I) = '"' then -- Can't have any double
-                                                -- quotes in this string.
-                           Msg_Copy(I) := ''';
-                    end if;
-               end loop;
-               if Msg_Copy'Length <= Max_Event_Message_Len then
-                    Ada.Text_IO.Put_Line (File, Msg_Copy & """");
-               else
-                    -- Find a space near the end:
-                    for I in reverse Msg_Copy'First +
-                       Max_Event_Message_Len-20 .. Msg_Copy'First +
-                       Natural'Min(Max_Event_Message_Len+1,Msg_Copy'Length-1)
-                          loop
-                       if Msg_Copy(I) = ' ' then
-                          Ada.Text_IO.Put_Line (File,
-                             Msg_Copy (Msg_Copy'First .. I - 1) & """");
-                          Ada.Text_IO.Close (File);
-                          return; -- Done.
-                       -- else continue looking.
-                       end if;
-                    end loop;
-                    -- No space obvious, so truncate it.
-                    Ada.Text_IO.Put_Line (File,
-                        Msg_Copy (Msg_Copy'First ..
-                          Msg_Copy'First + Natural'Min(
-                            Max_Event_Message_Len+1, Msg_Copy'Length)) & """");
-               end if;
-          end;
-          Ada.Text_IO.Close (File);
+        raise Program_Error;
+     --       if not Generate_Event_Trace_File then
+     --            return; -- Nothing to do, shouldn't get here.
+     --       end if;
+     --       begin
+     --            Ada.Text_IO.Open (File, Name => Event_Trace_File_Name,
+     --                 Mode => Ada.Text_IO.Append_File);
+     --       exception
+     --            when Ada.Text_IO.Name_Error =>
+     --                 -- The file doesn't exist, create it.
+     --                 Ada.Text_IO.Create (File, Name => Event_Trace_File_Name,
+     --                     Mode => Ada.Text_IO.Out_File);
+     --                 -- Write a header. This is not strictly necessary,
+     --                 -- but we do it as it makes it a lot easier to use
+     --                 -- the .CSV file in an spreadsheet.
+     --                 Ada.Text_IO.Put_Line (File,
+     --                                       "Event,Timestamp,Name," &
+     --                                       "Line,Position,Message");
+     --       end;
+     --       Ada.Text_IO.Put (File, Event & ",""" &
+     --                        Inner_Time_Stamp(Full => True) & """,""" &
+     --                        Test_Name (1..Test_Name_Len) & """,,,""");
+     --       declare
+     --            Msg_Copy : String := Msg;
+     --       begin
+     --            for I in Msg_Copy'range loop
+     --                 if Msg_Copy(I) = '"' then -- Can't have any double
+     --                                             -- quotes in this string.
+     --                        Msg_Copy(I) := ''';
+     --                 end if;
+     --            end loop;
+     --            if Msg_Copy'Length <= Max_Event_Message_Len then
+     --                 Ada.Text_IO.Put_Line (File, Msg_Copy & """");
+     --            else
+     --                 -- Find a space near the end:
+     --                 for I in reverse Msg_Copy'First +
+     --                    Max_Event_Message_Len-20 .. Msg_Copy'First +
+     --                    Natural'Min(Max_Event_Message_Len+1,Msg_Copy'Length-1)
+     --                       loop
+     --                    if Msg_Copy(I) = ' ' then
+     --                       Ada.Text_IO.Put_Line (File,
+     --                          Msg_Copy (Msg_Copy'First .. I - 1) & """");
+     --                       Ada.Text_IO.Close (File);
+     --                       return; -- Done.
+     --                    -- else continue looking.
+     --                    end if;
+     --                 end loop;
+     --                 -- No space obvious, so truncate it.
+     --                 Ada.Text_IO.Put_Line (File,
+     --                     Msg_Copy (Msg_Copy'First ..
+     --                       Msg_Copy'First + Natural'Min(
+     --                         Max_Event_Message_Len+1, Msg_Copy'Length)) & """");
+     --            end if;
+     --       end;
+     --       Ada.Text_IO.Close (File);
      end Put_Event_Trace;
 
      procedure Test (Name : String; Descr : String) is
