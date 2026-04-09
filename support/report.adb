@@ -95,41 +95,41 @@ package body Report is
                end if;
           end Convert;
      begin
-          Time_Now := Ada.Calendar.Clock;
-          -- Note: This entire routine except the above call could
-          -- be replaced by a call to Ada.Calendar.Formatting.Image
-          -- if we don't mind the 4 digit year, and that we couldn't
-          -- use the result on an Ada 95 compiler.
-          Split (Time_Now, Year_Number (Year), Month_Number (Month),
-                  Day_Number (Day), Dur_Second);
-          if Full then
-               -- Remove the fractional part without overflow (do this first
-               -- so we don't round the seconds, and don't need a larger
-               -- integer type [24-bits is not enough]):
-               Second := Time_Integer'Max(Time_Integer(Dur_Second)-1, 0);
-               Minute := Second / 60;
-               -- Leave just seconds:
-               Dur_Second := Dur_Second - Integer(Minute)*Day_Duration'(60.0);
-               -- Multiply by 100:
-               Dur_Second := Dur_Second * 100;
-               SubSecond := Time_Integer(Dur_Second);
-               SubSecond := SubSecond mod 100;
-               -- Remove the fractional part:
-               if Dur_Second <= Day_Duration(SubSecond) then
-                    -- The value is just the subseconds.
-                    Dur_Second := 0.0;
-               else
-                    Dur_Second := Dur_Second - Day_Duration(SubSecond);
-               end if;
-               -- Put everything back the way it was:
-               Dur_Second := Dur_Second / 100;
-               Dur_Second := Dur_Second + Integer(Minute)*Day_Duration'(60.0);
-          end if;
-          Second := Time_Integer(Dur_Second);
-          Hour := Second / 3600;
-          Second := Second mod 3600;
-          Minute := Second / 60;
-          Second := Second mod 60;
+          --  Time_Now := Ada.Calendar.Clock;
+          --  -- Note: This entire routine except the above call could
+          --  -- be replaced by a call to Ada.Calendar.Formatting.Image
+          --  -- if we don't mind the 4 digit year, and that we couldn't
+          --  -- use the result on an Ada 95 compiler.
+          --  Split (Time_Now, Year_Number (Year), Month_Number (Month),
+          --          Day_Number (Day), Dur_Second);
+          --  if Full then
+          --       -- Remove the fractional part without overflow (do this first
+          --       -- so we don't round the seconds, and don't need a larger
+          --       -- integer type [24-bits is not enough]):
+          --       Second := Time_Integer'Max(Time_Integer(Dur_Second)-1, 0);
+          --       Minute := Second / 60;
+          --       -- Leave just seconds:
+          --       Dur_Second := Dur_Second - Integer(Minute)*Day_Duration'(60.0);
+          --       -- Multiply by 100:
+          --       Dur_Second := Dur_Second * 100;
+          --       SubSecond := Time_Integer(Dur_Second);
+          --       SubSecond := SubSecond mod 100;
+          --       -- Remove the fractional part:
+          --       if Dur_Second <= Day_Duration(SubSecond) then
+          --            -- The value is just the subseconds.
+          --            Dur_Second := 0.0;
+          --       else
+          --            Dur_Second := Dur_Second - Day_Duration(SubSecond);
+          --       end if;
+          --       -- Put everything back the way it was:
+          --       Dur_Second := Dur_Second / 100;
+          --       Dur_Second := Dur_Second + Integer(Minute)*Day_Duration'(60.0);
+          --  end if;
+          --  Second := Time_Integer(Dur_Second);
+          --  Hour := Second / 3600;
+          --  Second := Second mod 3600;
+          --  Minute := Second / 60;
+          --  Second := Second mod 60;
           if Full then
                return (Convert (Time_Integer (Year)/100) &
                        Convert (Time_Integer (Year)) & "-" &
