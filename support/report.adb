@@ -48,8 +48,17 @@ package body Report is
                     end if;
                else N := Msg'Last;
                end if;
-               Set_Col (Standard_Output, Ada.Text_IO.Count (I+1));
-               Put_Line (Standard_Output, Msg (M..N));
+
+         declare
+            Aux : constant String (1 .. I + 1) := (others => ' ');
+
+         begin
+            Put (Aux);
+            Put_Line (Msg (M..N));
+         end;
+
+               --  Set_Col (Standard_Output, Ada.Text_IO.Count (I+1));
+               --  Put_Line (Standard_Output, Msg (M..N));
                I := Indent;
                M := N + 1;
                while M <= Msg'Last and then Msg (M) = ' ' loop
