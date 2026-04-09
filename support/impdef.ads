@@ -434,8 +434,8 @@ package ImpDef is
    -- System.Storage_Elements.Integer_Address; one of the two instances will
    -- be correct.  Comment out the incorrect instance.
 
-   package Address_Value_IO is
-        new Ada.Text_IO.Integer_IO(System.Storage_Elements.Integer_Address);
+--     package Address_Value_IO is
+--          new Ada.Text_IO.Integer_IO(System.Storage_Elements.Integer_Address);
 
    --M package Address_Value_IO is
    --M      new Ada.Text_IO.Modular_IO(System.Storage_Elements.Integer_Address);
