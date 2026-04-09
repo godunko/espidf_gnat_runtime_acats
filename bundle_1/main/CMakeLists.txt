@@ -1,8 +1,6 @@
 idf_component_register(
     REQUIRES espidf_gnat_runtime)
 
-set(EXTRA_COMPONENT_DIRS "../../../..")
-
 ExternalProject_Add(adaapplication_build
     PREFIX ${COMPONENT_DIR}
     SOURCE_DIR ${COMPONENT_DIR}
