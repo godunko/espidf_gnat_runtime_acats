@@ -7,7 +7,10 @@ library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
    for Runtime ("Ada") use "../../../runtime";
 
    for Source_Dirs use
-     ("main/source", "source", "../support", "../ACATS/support", "../ACATS/a");
+     ("main/source", "source", "../support",
+      "../ACATS/support",
+      "../ACATS/a",
+      "../ACATS/cxf");
    for Object_Dir use ".objs";
    for Library_Name use "adaapplication";
    for Library_Dir use ".libs";
@@ -38,6 +41,9 @@ library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
    end Compiler;
 
    package Naming is
+      for Specification ("FXF2A00") use "fxf2a00.a" at 1;
+      for Implementation ("FXF2A00") use "fxf2a00.a" at 2;
+
       for Specification ("Version") use "version.a";
       for Implementation ("A22006B") use "a22006b.ada";
       for Implementation ("A22006C") use "a22006c.ada";
@@ -137,6 +143,46 @@ library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
       for Implementation ("AE3101A") use "ae3101a.ada";
       for Implementation ("AE3702A") use "ae3702a.ada";
       for Implementation ("AE3709A") use "ae3709a.ada";
+
+      for Implementation ("CXF1001") use "cxf1001.a";
+      for Implementation ("CXF2001") use "cxf2001.a";
+      for Specification ("CXF2002_0") use "cxf2002.a" at 1;
+      for Implementation ("CXF2002_0") use "cxf2002.a" at 2;
+      for Specification ("CXF2002_1") use "cxf2002.a" at 3;
+      for Implementation ("CXF2002") use "cxf2002.a" at 4;
+      for Specification ("CXF2003_0") use "cxf2003.a" at 1;
+      for Implementation ("CXF2003_0") use "cxf2003.a" at 2;
+      for Specification ("CXF2003_1") use "cxf2003.a" at 3;
+      for Implementation ("CXF2003") use "cxf2003.a" at 4;
+      for Specification ("CXF2004_0") use "cxf2004.a" at 1;
+      for Implementation ("CXF2004_0") use "cxf2004.a" at 2;
+      for Specification ("CXF2004_1") use "cxf2004.a" at 3;
+      for Implementation ("CXF2004") use "cxf2004.a" at 4;
+      for Specification ("CXF2005_0") use "cxf2005.a" at 1;
+      for Implementation ("CXF2005_0") use "cxf2005.a" at 2;
+      for Specification ("CXF2005_1") use "cxf2005.a" at 3;
+      for Implementation ("CXF2005_1") use "cxf2005.a" at 4;
+      for Implementation ("CXF2005") use "cxf2005.a" at 5;
+      for Specification ("CXF2A01_0") use "cxf2a01.a" at 1;
+      for Implementation ("CXF2A01_0") use "cxf2a01.a" at 2;
+      for Specification ("CXF2A01_0.CXF2A01_1") use "cxf2a01.a" at 3;
+      for Implementation ("CXF2A01") use "cxf2a01.a" at 4;
+      for Specification ("CXF2A02_0") use "cxf2a02.a" at 1;
+      for Implementation ("CXF2A02_0") use "cxf2a02.a" at 2;
+      for Specification ("CXF2A02_0.CXF2A02_1") use "cxf2a02.a" at 3;
+      for Implementation ("CXF2A02") use "cxf2a02.a" at 4;
+      for Implementation ("CXF3001") use "cxf3001.a";
+      for Implementation ("CXF3002") use "cxf3002.a";
+      for Implementation ("CXF3003") use "cxf3003.a";
+      for Implementation ("CXF3004") use "cxf3004.a";
+      for Implementation ("CXF3A01") use "cxf3a01.a";
+      for Implementation ("CXF3A02") use "cxf3a02.a";
+      for Implementation ("CXF3A03") use "cxf3a03.a";
+      for Implementation ("CXF3A04") use "cxf3a04.a";
+      for Implementation ("CXF3A05") use "cxf3a05.a";
+      for Implementation ("CXF3A06") use "cxf3a06.a";
+      for Implementation ("CXF3A07") use "cxf3a07.a";
+      for Implementation ("CXF3A08") use "cxf3a08.a";
    end Naming;
 
 end ESPIDF_GNAT_Runtime_ACATS_Bundle_1;
