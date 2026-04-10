@@ -10,7 +10,8 @@ library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
      ("main/source", "source", "../support",
       "../ACATS/support",
       "../ACATS/a",
-      "../ACATS/cxf");
+      "../ACATS/cxf",
+      "../ACATS/cxg");
    for Object_Dir use ".objs";
    for Library_Name use "adaapplication";
    for Library_Dir use ".libs";
@@ -183,6 +184,37 @@ library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
       for Implementation ("CXF3A06") use "cxf3a06.a";
       for Implementation ("CXF3A07") use "cxf3a07.a";
       for Implementation ("CXF3A08") use "cxf3a08.a";
+
+      for Implementation ("CXG1001") use "cxg1001.a";
+      for Implementation ("CXG1002") use "cxg1002.a";
+      for Implementation ("CXG1003") use "cxg1003.a";
+      for Implementation ("CXG1004") use "cxg1004.a";
+      for Implementation ("CXG1005") use "cxg1005.a";
+      for Implementation ("CXG2001") use "cxg2001.a";
+      for Implementation ("CXG2002") use "cxg2002.a";
+      for Implementation ("CXG2003") use "cxg2003.a";
+      for Implementation ("CXG2004") use "cxg2004.a";
+      for Implementation ("CXG2005") use "cxg2005.a";
+      for Implementation ("CXG2006") use "cxg2006.a";
+      for Implementation ("CXG2007") use "cxg2007.a";
+      for Specification ("CXG2008_0") use "cxg2008.a" at 1;
+      for Implementation ("CXG2008") use "cxg2008.a" at 2;
+      for Implementation ("CXG2009") use "cxg2009.a";
+      for Implementation ("CXG2010") use "cxg2010.a";
+      for Implementation ("CXG2011") use "cxg2011.a";
+      for Implementation ("CXG2012") use "cxg2012.a";
+      for Implementation ("CXG2013") use "cxg2013.a";
+      for Implementation ("CXG2014") use "cxg2014.a";
+      for Implementation ("CXG2015") use "cxg2015.a";
+      for Implementation ("CXG2016") use "cxg2016.a";
+      for Implementation ("CXG2017") use "cxg2017.a";
+      for Implementation ("CXG2018") use "cxg2018.a";
+      for Implementation ("CXG2019") use "cxg2019.a";
+      for Implementation ("CXG2020") use "cxg2020.a";
+      for Implementation ("CXG2021") use "cxg2021.a";
+      for Implementation ("CXG2022") use "cxg2022.a";
+      for Implementation ("CXG2023") use "cxg2023.a";
+      for Implementation ("CXG2024") use "cxg2024.a";
    end Naming;
 
 end ESPIDF_GNAT_Runtime_ACATS_Bundle_1;
