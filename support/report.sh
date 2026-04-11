@@ -36,6 +36,7 @@ while IFS= read -r line; do
     TEST)
       case "$line" in
         \ ,.,.*)
+          echo "${line}"
           exit 2
 	  ;;
         \ ====\ *\ PASSED*)
