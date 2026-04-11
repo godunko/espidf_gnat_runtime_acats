@@ -74,6 +74,8 @@ with AD7006A;
 --  with AE3702A;
 --  with AE3709A;
 
+with Group_CXA;
+
 with CXF1001;
 with CXF2001;
 with CXF2002;
@@ -210,6 +212,8 @@ begin
    --  AE3101A;
    --  AE3702A;
    --  AE3709A;
+
+   Group_CXA;
 
    CXF1001;
    CXF2001;
