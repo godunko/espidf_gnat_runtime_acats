@@ -12,6 +12,7 @@ library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
      ("main/source", "source", "../support",
       "../ACATS/support",
       "../ACATS/a",
+      "../ACATS/c2",
       "../ACATS/cxa",
       "../ACATS/cxb",
       "../ACATS/cxc",
@@ -353,6 +354,94 @@ library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
       for Implementation ("ae3101a") use "ae3101a.ada";
       for Implementation ("ae3702a") use "ae3702a.ada";
       for Implementation ("ae3709a") use "ae3709a.ada";
+
+      for Implementation ("c23001a") use "c23001a.ada";
+      for Implementation ("c23003a") use "c23003a.tst";
+      for Specification ("big_id1") use "c23003b.tst" at 1;
+      for Specification ("big_id2") use "c23003b.tst" at 2;
+      for Implementation ("big_id3") use "c23003b.tst" at 3;
+      for Implementation ("big_id4") use "c23003b.tst" at 4;
+      for Implementation ("c23003b") use "c23003b.tst" at 5;
+      for Specification ("big_id1") use "c23003g.tst" at 1;
+      for Specification ("big_id2") use "c23003g.tst" at 2;
+      for Specification ("big_id3") use "c23003g.tst" at 3;
+      for Implementation ("big_id3") use "c23003g.tst" at 4;
+      for Specification ("big_id4") use "c23003g.tst" at 5;
+      for Implementation ("big_id4") use "c23003g.tst" at 6;
+      for Specification ("f1") use "c23003g.tst" at 7;
+      for Specification ("c23003g_pkg") use "c23003g.tst" at 8;
+      for Implementation ("c23003g") use "c23003g.tst" at 9;
+      for Specification ("c23003i_pkg") use "c23003i.tst" at 1;
+      for Specification ("big_id1") use "c23003i.tst" at 2;
+      for Specification ("big_id2") use "c23003i.tst" at 3;
+      for Implementation ("c23003i") use "c23003i.tst" at 4;
+      for Implementation ("c23006a") use "c23006a.ada";
+      for Specification ("c23006b_pkg") use "c23006b.ada" at 1;
+      for Specification ("c23006bpkg") use "c23006b.ada" at 2;
+      for Implementation ("c23006bpkg") use "c23006b.ada" at 3;
+      for Implementation ("c23006b") use "c23006b.ada" at 4;
+      for Implementation ("c23006c_proc") use "c23006c.ada" at 1;
+      for Specification ("c23006cproc") use "c23006c.ada" at 2;
+      for Implementation ("c23006cproc") use "c23006c.ada" at 3;
+      for Implementation ("c23006c_func") use "c23006c.ada" at 4;
+      for Specification ("c23006cfunc") use "c23006c.ada" at 5;
+      for Implementation ("c23006cfunc") use "c23006c.ada" at 6;
+      for Implementation ("c23006c") use "c23006c.ada" at 7;
+      for Specification ("c23006d_pkg") use "c23006d.ada" at 1;
+      for Specification ("c23006dpkg") use "c23006d.ada" at 2;
+      for Implementation ("c23006dpkg") use "c23006d.ada" at 3;
+      for Specification ("c23006d_inst") use "c23006d.ada" at 4;
+      for Implementation ("c23006d") use "c23006d.ada" at 5;
+      for Specification ("c23006e_proc") use "c23006e.ada" at 1;
+      for Specification ("f1") use "c23006e.ada" at 10;
+      for Implementation ("c23006e") use "c23006e.ada" at 11;
+      for Implementation ("c23006e_proc") use "c23006e.ada" at 2;
+      for Specification ("c230063proc") use "c23006e.ada" at 3;
+      for Implementation ("c230063proc") use "c23006e.ada" at 4;
+      for Specification ("c23006e_gfunc") use "c23006e.ada" at 5;
+      for Implementation ("c23006e_gfunc") use "c23006e.ada" at 6;
+      for Specification ("c23006egfunc") use "c23006e.ada" at 7;
+      for Implementation ("c23006egfunc") use "c23006e.ada" at 8;
+      for Specification ("p1") use "c23006e.ada" at 9;
+      for Specification ("c23006f_pkg") use "c23006f.ada" at 1;
+      for Specification ("c23006f_inst") use "c23006f.ada" at 2;
+      for Specification ("c23006finst") use "c23006f.ada" at 3;
+      for Implementation ("c23006f") use "c23006f.ada" at 4;
+      for Specification ("c23006g_proc") use "c23006g.ada" at 1;
+      for Implementation ("c23006g_proc") use "c23006g.ada" at 2;
+      for Specification ("c23006g_func") use "c23006g.ada" at 3;
+      for Implementation ("c23006g_func") use "c23006g.ada" at 4;
+      for Specification ("c23006g_instp") use "c23006g.ada" at 5;
+      for Specification ("c23006ginstp") use "c23006g.ada" at 6;
+      for Specification ("c23006g_instf") use "c23006g.ada" at 7;
+      for Specification ("c23006ginstf") use "c23006g.ada" at 8;
+      for Implementation ("c23006g") use "c23006g.ada" at 9;
+      for Implementation ("c24002d") use "c24002d.ada";
+      for Implementation ("c24003a") use "c24003a.ada";
+      for Implementation ("c24003b") use "c24003b.ada";
+      for Implementation ("c24003c") use "c24003c.ada";
+      for Implementation ("c24106a") use "c24106a.ada";
+      for Implementation ("c24202d") use "c24202d.ada";
+      for Implementation ("c24203a") use "c24203a.ada";
+      for Implementation ("c24203b") use "c24203b.ada";
+      for Implementation ("c24207a") use "c24207a.ada";
+      for Implementation ("c24211a") use "c24211a.ada";
+      for Specification ("c250001_0") use "c250001.au" at 1;
+      for Implementation ("c250001") use "c250001.au" at 2;
+      for Specification ("c250002_0") use "c250002.au" at 1;
+--      for Specification ("c250002_ã¡") use "c250002.au" at 2;
+--      for Implementation ("c250002_ã¡") use "c250002.au" at 3;
+      for Implementation ("c250002") use "c250002.au" at 4;
+      for Implementation ("c25001a") use "c25001a.ada";
+      for Implementation ("c25001b") use "c25001b.ada";
+      for Implementation ("c26006a") use "c26006a.ada";
+      for Implementation ("c26008a") use "c26008a.ada";
+      for Implementation ("c2a001a") use "c2a001a.ada";
+      for Implementation ("c2a001b") use "c2a001b.ada";
+      for Implementation ("c2a001c") use "c2a001c.ada";
+      for Implementation ("c2a002a") use "c2a002a.ada";
+      for Implementation ("c2a008a") use "c2a008a.ada";
+      for Implementation ("c2a021b") use "c2a021b.ada";
 
       for Implementation ("cxa3001") use "cxa3001.a";
       for Implementation ("cxa3002") use "cxa3002.a";

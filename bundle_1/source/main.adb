@@ -1,5 +1,6 @@
 
 with Group_A;
+with Group_C2;
 with Group_CXA;
 with Group_CXB;
 with Group_CXC;
@@ -66,6 +67,7 @@ begin
    Debug.Install_Heap_Failed_Alloc_Callback;
 
    Group_A;
+   Group_C2;
    Group_CXA;
    Group_CXB;
    Group_CXC;
