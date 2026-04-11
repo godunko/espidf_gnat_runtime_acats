@@ -125,11 +125,16 @@ with CXG2022;
 with CXG2023;
 with CXG2024;
 
+with Debug;
+
 procedure Main is
    procedure ESP_Restart
      with Import, Convention => C, External_Name => "esp_restart";
 
 begin
+   Debug.Print_Heap_Info;
+   Debug.Install_Heap_Failed_Alloc_Callback;
+
    A22006B;
    A22006C;
    A22006D;
@@ -257,5 +262,6 @@ begin
    CXG2023;
    CXG2024;
 
+   Debug.Print_Heap_Info;
    ESP_Restart;
 end Main;
