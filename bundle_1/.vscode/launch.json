@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "gdbtarget",
+      "request": "attach",
+      "name": "Eclipse CDT GDB Adapter",
+      "initCommands": [
+        "set multiple-symbols cancel",
+        "monitor reset halt",
+	"hbreak __gnat_raise_program_error_msg",
+        "hbreak _ada_main"
+      ]
+    },
+    {
+      "type": "espidf",
+      "name": "Launch",
+      "request": "launch"
+    }
+  ]
+}
