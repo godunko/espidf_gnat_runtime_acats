@@ -6,11 +6,14 @@ library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
    for Target use "xtensa-esp32-elf";
    for Runtime ("Ada") use "../../../runtime";
 
+   for Languages use ("Ada", "C");
+
    for Source_Dirs use
      ("main/source", "source", "../support",
       "../ACATS/support",
       "../ACATS/a",
       "../ACATS/cxa",
+      "../ACATS/cxb",
       "../ACATS/cxf",
       "../ACATS/cxg");
    for Object_Dir use ".objs";
@@ -568,6 +571,52 @@ library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
       for Specification ("cxaib08_data") use "cxaib08.a" at 1;
       for Implementation ("cxaib08") use "cxaib08.a" at 2;
       for Implementation ("cxaj001") use "cxaj001.a";
+
+      for Implementation ("cxb2001") use "cxb2001.a";
+      for Implementation ("cxb2002") use "cxb2002.a";
+      for Implementation ("cxb2003") use "cxb2003.a";
+      for Implementation ("cxb3001") use "cxb3001.a";
+      for Implementation ("cxb3002") use "cxb3002.a";
+      for Implementation ("cxb3003") use "cxb3003.a";
+      for Implementation ("cxb30041") use "cxb30041.am";
+      for Implementation ("cxb3005") use "cxb3005.a";
+      for Implementation ("cxb30061") use "cxb30061.am";
+      for Implementation ("cxb3007") use "cxb3007.a";
+      for Implementation ("cxb3008") use "cxb3008.a";
+      for Implementation ("cxb3009") use "cxb3009.a";
+      for Implementation ("cxb3010") use "cxb3010.a";
+      for Implementation ("cxb3011") use "cxb3011.a";
+      for Implementation ("cxb3012") use "cxb3012.a";
+      for Implementation ("cxb30132") use "cxb30132.am";
+      for Implementation ("cxb3014") use "cxb3014.a";
+      for Implementation ("cxb3015") use "cxb3015.a";
+      for Implementation ("cxb3016") use "cxb3016.a";
+      for Specification ("cxb30171") use "cxb30171.a" at 1;
+      for Implementation ("cxb30171") use "cxb30171.a" at 2;
+      for Implementation ("cxb30172") use "cxb30172.am";
+      for Specification ("cxb30181") use "cxb30181.a" at 1;
+      for Implementation ("cxb30181") use "cxb30181.a" at 2;
+      for Implementation ("cxb30182") use "cxb30182.am";
+      for Implementation ("cxb3019") use "cxb3019.a";
+      for Implementation ("cxb3020") use "cxb3020.a";
+      for Implementation ("cxb3021") use "cxb3021.a";
+      for Implementation ("cxb3022") use "cxb3022.a";
+      for Implementation ("cxb30231") use "cxb30231.am";
+      for Implementation ("cxb30241") use "cxb30241.am";
+      for Implementation ("cxb4001") use "cxb4001.a";
+      for Implementation ("cxb4002") use "cxb4002.a";
+      for Implementation ("cxb4003") use "cxb4003.a";
+      for Implementation ("cxb4004") use "cxb4004.a";
+      for Implementation ("cxb4005") use "cxb4005.a";
+      for Implementation ("cxb4006") use "cxb4006.a";
+      for Implementation ("cxb4007") use "cxb4007.a";
+      for Implementation ("cxb4008") use "cxb4008.a";
+      for Implementation ("cxb40093") use "cxb40093.am";
+      for Implementation ("cxb5001") use "cxb5001.a";
+      for Implementation ("cxb5002") use "cxb5002.a";
+      for Implementation ("cxb5003") use "cxb5003.a";
+      for Implementation ("cxb50042") use "cxb50042.am";
+      for Implementation ("cxb50052") use "cxb50052.am";
 
       for Implementation ("CXF1001") use "cxf1001.a";
       for Implementation ("CXF2001") use "cxf2001.a";
