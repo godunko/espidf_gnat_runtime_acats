@@ -308,7 +308,7 @@ with C39006B;
 with C39006C0M;
 with C39006D;
 with C39006E;
-with C39006F3M;
+--  with C39006F3M;
 with C39006G;
 with C39007A;
 with C39007B;
@@ -709,7 +709,7 @@ begin
    C39006C0M;
    C39006D;
    C39006E;
-   C39006F3M;
+   --  C39006F3M;
    C39006G;
    C39007A;
    C39007B;
