@@ -39,7 +39,7 @@ with CXB5001;
 with CXB5002;
 with CXB5003;
 --  with CXB50042;
-with CXB50052;
+--  with CXB50052;
 
 procedure Group_CXB is
 begin
@@ -83,5 +83,5 @@ begin
    CXB5002;
    CXB5003;
    --  CXB50042;
-   CXB50052;
+   --  CXB50052;
 end Group_CXB;
