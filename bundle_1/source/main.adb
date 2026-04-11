@@ -1,6 +1,7 @@
 
 with Group_A;
 with Group_C2;
+with Group_C3;
 with Group_CXA;
 with Group_CXB;
 with Group_CXC;
@@ -68,6 +69,7 @@ begin
 
    Group_A;
    Group_C2;
+   Group_C3;
    Group_CXA;
    Group_CXB;
    Group_CXC;
