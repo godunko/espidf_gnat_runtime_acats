@@ -14,6 +14,7 @@ library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
       "../ACATS/a",
       "../ACATS/cxa",
       "../ACATS/cxb",
+      "../ACATS/cxc",
       "../ACATS/cxf",
       "../ACATS/cxg");
    for Object_Dir use ".objs";
@@ -226,8 +227,8 @@ library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
 --      for Implementation ("grading_data") use "grd_data.a" at 2;
 --      for Specification ("impdef") use "impdef.a" at 1;
 --      for Implementation ("impdef") use "impdef.a" at 2;
---      for Specification ("impdef.annex_c") use "impdefc.a" at 1;
---      for Implementation ("impdef.annex_c") use "impdefc.a" at 2;
+      for Specification ("impdef.annex_c") use "impdefc.a" at 1;
+      for Implementation ("impdef.annex_c") use "impdefc.a" at 2;
 --      for Specification ("impdef.annex_d") use "impdefd.a";
 --      for Specification ("impdef.annex_e") use "impdefe.a";
 --      for Specification ("impdef.annex_g") use "impdefg.a" at 1;
@@ -617,6 +618,75 @@ library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
       for Implementation ("cxb5003") use "cxb5003.a";
       for Implementation ("cxb50042") use "cxb50042.am";
       for Implementation ("cxb50052") use "cxb50052.am";
+
+      for Specification ("cxc3001_0") use "cxc3001.a" at 1;
+      for Implementation ("cxc3001_0") use "cxc3001.a" at 2;
+      for Implementation ("cxc3001") use "cxc3001.a" at 3;
+      for Specification ("cxc3002_0") use "cxc3002.a" at 1;
+      for Implementation ("cxc3002_0") use "cxc3002.a" at 2;
+      for Specification ("cxc3002_1") use "cxc3002.a" at 3;
+      for Implementation ("cxc3002_1") use "cxc3002.a" at 4;
+      for Implementation ("cxc3002") use "cxc3002.a" at 5;
+      for Specification ("cxc3003_0") use "cxc3003.a" at 1;
+      for Implementation ("cxc3003_0") use "cxc3003.a" at 2;
+      for Specification ("cxc3003_1") use "cxc3003.a" at 3;
+      for Implementation ("cxc3003_1") use "cxc3003.a" at 4;
+      for Implementation ("cxc3003") use "cxc3003.a" at 5;
+      for Specification ("cxc3004_0") use "cxc3004.a" at 1;
+      for Implementation ("cxc3004_0") use "cxc3004.a" at 2;
+      for Implementation ("cxc3004") use "cxc3004.a" at 3;
+      for Specification ("cxc3005_0") use "cxc3005.a" at 1;
+      for Implementation ("cxc3005_0") use "cxc3005.a" at 2;
+      for Specification ("cxc3005_1") use "cxc3005.a" at 3;
+      for Implementation ("cxc3005_1") use "cxc3005.a" at 4;
+      for Implementation ("cxc3005") use "cxc3005.a" at 5;
+      for Specification ("cxc3006_0") use "cxc3006.a" at 1;
+      for Implementation ("cxc3006_0") use "cxc3006.a" at 2;
+      for Specification ("cxc3006_1") use "cxc3006.a" at 3;
+      for Implementation ("cxc3006_1") use "cxc3006.a" at 4;
+      for Implementation ("cxc3006") use "cxc3006.a" at 5;
+      for Specification ("cxc3007_0") use "cxc3007.a" at 1;
+      for Implementation ("cxc3007_0") use "cxc3007.a" at 2;
+      for Implementation ("cxc3007") use "cxc3007.a" at 3;
+      for Specification ("cxc3008_0") use "cxc3008.a" at 1;
+      for Implementation ("cxc3008_0") use "cxc3008.a" at 2;
+      for Implementation ("cxc3008") use "cxc3008.a" at 3;
+      for Specification ("cxc3009_1") use "cxc3009.a" at 1;
+      for Implementation ("cxc3009_1") use "cxc3009.a" at 2;
+      for Implementation ("cxc3009") use "cxc3009.a" at 3;
+      for Specification ("cxc3010_0") use "cxc3010.a" at 1;
+      for Implementation ("cxc3010_0") use "cxc3010.a" at 2;
+      for Specification ("cxc3010_1") use "cxc3010.a" at 3;
+      for Implementation ("cxc3010_1") use "cxc3010.a" at 4;
+      for Implementation ("cxc3010") use "cxc3010.a" at 5;
+      for Specification ("cxc6001_0") use "cxc6001.a" at 1;
+      for Implementation ("cxc6001_0") use "cxc6001.a" at 2;
+      for Specification ("cxc6001_1") use "cxc6001.a" at 3;
+      for Implementation ("cxc6001_1") use "cxc6001.a" at 4;
+      for Implementation ("cxc6001") use "cxc6001.a" at 5;
+      for Specification ("cxc6002_1") use "cxc6002.a" at 1;
+      for Implementation ("cxc6002_1") use "cxc6002.a" at 2;
+      for Implementation ("cxc6002") use "cxc6002.a" at 3;
+      for Implementation ("cxc6003") use "cxc6003.a";
+      for Specification ("cxc7001_0") use "cxc7001.a" at 1;
+      for Implementation ("cxc7001_0") use "cxc7001.a" at 2;
+      for Implementation ("cxc7001") use "cxc7001.a" at 3;
+      for Specification ("cxc7002_0") use "cxc7002.a" at 1;
+      for Implementation ("cxc7002_0") use "cxc7002.a" at 2;
+      for Specification ("cxc7002_1") use "cxc7002.a" at 3;
+      for Implementation ("cxc7002") use "cxc7002.a" at 4;
+      for Specification ("cxc7003_0") use "cxc7003.a" at 1;
+      for Implementation ("cxc7003_0") use "cxc7003.a" at 2;
+      for Implementation ("cxc7003") use "cxc7003.a" at 3;
+      for Specification ("cxc7004_0") use "cxc7004.a" at 1;
+      for Implementation ("cxc7004_0") use "cxc7004.a" at 2;
+      for Implementation ("cxc7004") use "cxc7004.a" at 3;
+      for Implementation ("cxc7005") use "cxc7005.a";
+      for Specification ("cxc7006_1") use "cxc7006.a" at 1;
+      for Implementation ("cxc7006_1") use "cxc7006.a" at 2;
+      for Specification ("cxc7006_2") use "cxc7006.a" at 3;
+      for Implementation ("cxc7006_2") use "cxc7006.a" at 4;
+      for Implementation ("cxc7006") use "cxc7006.a" at 5;
 
       for Implementation ("CXF1001") use "cxf1001.a";
       for Implementation ("CXF2001") use "cxf2001.a";

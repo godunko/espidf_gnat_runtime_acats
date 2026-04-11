@@ -2,6 +2,7 @@
 with Group_A;
 with Group_CXA;
 with Group_CXB;
+with Group_CXC;
 
 with CXF1001;
 with CXF2001;
@@ -67,6 +68,7 @@ begin
    Group_A;
    Group_CXA;
    Group_CXB;
+   Group_CXC;
 
    CXF1001;
    CXF2001;
