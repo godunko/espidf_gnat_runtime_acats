@@ -5,9 +5,11 @@ log=$1
 total=`cat log | grep ' ,.,.' | wc -l`
 passed=`cat log | grep ' ==== [0-9a-zA-Z_]* PASSED' | wc -l`
 failed=`cat log | grep ' \*\*\*\* [0-9a-zA-Z_]* FAILED' | wc -l`
+skipped=`cat log | grep ' ++++ [0-9a-zA-Z_]* NOT-APPLICABLE' | wc -l`
 
 echo "TOTAL:  $total"
 echo "PASSED: $passed"
+echo "SKIPPED: $skipped"
 echo "FAILED: $failed"
 
 if [ "$total" = "0" ]; then
@@ -19,6 +21,7 @@ first=TRUE
 summary_tests=0
 summary_passed=0
 summary_failed=0
+summary_skipped=0
 
 rm -f sections.tests
 rm -f ctrf.json
@@ -75,6 +78,24 @@ while IFS= read -r line; do
 
 	  state=INITIAL
 	  ;;
+        \ ++++\ *\ NOT-APPLICABLE*)
+          test_status="skipped"
+	  ((summary_tests++))
+	  ((summary_skipped++))
+
+	  if [ "$first" = "TRUE" ]; then
+            first=FALSE
+          else
+            echo "," >> sections.tests
+	  fi
+	  echo "      {" >> sections.tests
+	  echo "        \"name\": \"${test_name}\"," >> sections.tests
+	  echo "        \"status\": \"${test_status}\"," >> sections.tests
+	  echo "        \"duration\": 0" >> sections.tests
+	  echo -n "      }" >> sections.tests
+
+	  state=INITIAL
+	  ;;
       esac
       ;;
     *)
@@ -94,7 +115,7 @@ echo "      \"tests\": ${summary_tests}," >> ctrf.json
 echo "      \"passed\": ${summary_passed}," >> ctrf.json
 echo "      \"failed\": ${summary_failed}," >> ctrf.json
 echo "      \"pending\": 0," >> ctrf.json
-echo "      \"skipped\": 0," >> ctrf.json
+echo "      \"skipped\": ${summary_skipped}," >> ctrf.json
 echo "      \"other\": 0," >> ctrf.json
 echo "      \"start\": 0," >> ctrf.json
 echo "      \"stop\": 0" >> ctrf.json
