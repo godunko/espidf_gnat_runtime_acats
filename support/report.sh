@@ -16,6 +16,32 @@ if [ "$total" = "0" ]; then
   exit 1
 fi
 
+dump_test()
+{
+  if [ "$first" == "TRUE" ]; then
+    first=FALSE
+  else
+    echo "," >> sections.tests
+  fi
+  echo "      {" >> sections.tests
+  echo "        \"name\": \"${test_name}\"," >> sections.tests
+  echo "        \"status\": \"${test_status}\"," >> sections.tests
+  echo "        \"duration\": 0," >> sections.tests
+  echo "        \"stdout\": [" >> sections.tests
+  local first_item=TRUE
+  for item in "${test_stdout[@]}"; do
+    if [ "$first_item" == "TRUE" ]; then
+      first_item=FALSE
+    else
+      echo "," >> sections.tests
+    fi
+    echo -n "          \"${item//\"/\\\"}\"" >> sections.tests;
+  done
+  echo "" >> sections.tests
+  echo "        ]" >> sections.tests
+  echo -n "      }" >> sections.tests
+}
+
 state=INITIAL
 first=TRUE
 summary_tests=0
@@ -33,6 +59,7 @@ while IFS= read -r line; do
         \ ,.,.\ *)
 	  [[ "$line" =~ \ ,.,.\ ([0-9A-Z]+) ]] || exit 1
 	  test_name=${BASH_REMATCH[1]}
+	  test_stdout=()
 	  state=TEST
       esac
       ;;
@@ -47,16 +74,7 @@ while IFS= read -r line; do
 	  ((summary_tests++))
 	  ((summary_passed++))
 
-	  if [ "$first" = "TRUE" ]; then
-            first=FALSE
-          else
-            echo "," >> sections.tests
-	  fi
-	  echo "      {" >> sections.tests
-	  echo "        \"name\": \"${test_name}\"," >> sections.tests
-	  echo "        \"status\": \"${test_status}\"," >> sections.tests
-	  echo "        \"duration\": 0" >> sections.tests
-	  echo -n "      }" >> sections.tests
+	  dump_test
 
 	  state=INITIAL
 	  ;;
@@ -65,16 +83,7 @@ while IFS= read -r line; do
 	  ((summary_tests++))
 	  ((summary_failed++))
 
-	  if [ "$first" = "TRUE" ]; then
-            first=FALSE
-          else
-            echo "," >> sections.tests
-	  fi
-	  echo "      {" >> sections.tests
-	  echo "        \"name\": \"${test_name}\"," >> sections.tests
-	  echo "        \"status\": \"${test_status}\"," >> sections.tests
-	  echo "        \"duration\": 0" >> sections.tests
-	  echo -n "      }" >> sections.tests
+	  dump_test
 
 	  state=INITIAL
 	  ;;
@@ -83,19 +92,13 @@ while IFS= read -r line; do
 	  ((summary_tests++))
 	  ((summary_skipped++))
 
-	  if [ "$first" = "TRUE" ]; then
-            first=FALSE
-          else
-            echo "," >> sections.tests
-	  fi
-	  echo "      {" >> sections.tests
-	  echo "        \"name\": \"${test_name}\"," >> sections.tests
-	  echo "        \"status\": \"${test_status}\"," >> sections.tests
-	  echo "        \"duration\": 0" >> sections.tests
-	  echo -n "      }" >> sections.tests
+	  dump_test
 
 	  state=INITIAL
 	  ;;
+        *)
+          IFS=$'\n\r' test_stdout+=(${line})
+          ;;
       esac
       ;;
     *)
