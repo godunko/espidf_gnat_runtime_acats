@@ -1,7 +1,7 @@
 
 with "config/espidf_gnat_runtime_acats_bundle_1_config.gpr";
 
-project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
+library project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
 
    for Target use "xtensa-esp32-elf";
    for Runtime ("Ada") use "../../../runtime";
@@ -9,7 +9,7 @@ project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
    for Languages use ("Ada", "C");
 
    for Source_Dirs use
-     ("source", "../support",
+     ("main/source", "source", "../support",
       "../ACATS/support",
       "../ACATS/a",
       "../ACATS/c2",
@@ -21,13 +21,17 @@ project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
       "../ACATS/cxf",
       "../ACATS/cxg");
    for Object_Dir use ".objs";
-   for Main use ("main.adb");
+   for Library_Name use "adaapplication";
+   for Library_Dir use ".libs";
+   for Library_Interface use ("Application");
+   for Library_Standalone use "encapsulated";
 
    package Binder is
       for Switches ("Ada") use
-        (--  "-Mapp_main",  --  XXX This doesn't work for FSF GCC 15.2
-         --  Set the binder generated main function's name to app_main as this
-         --  is required by the SDK.
+        ("-Lada",
+         --  Library build: adainit/final renamed to xyzinit/final, implies -n
+         --
+         --  `adafinal` is called from `application.adb`
          "-D4k",
          --  Default secondary stack size = nn [kilo|mega] bytes
          --
@@ -41,10 +45,6 @@ project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
          --  which use secondary stack this number should be adjusted.
    end Binder;
 
-   package Builder is
-      for Executable ("main.adb") use "app_main.o";
-   end Builder;
-
    package Compiler is
       for Switches ("Ada") use
         ("-g",
@@ -53,12 +53,7 @@ project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
          "-fdata-sections");
    end Compiler;
 
-   package Linker is
-      for Default_Switches ("Ada") use ("-nostdlib", "-Wl,-r");
-   end Linker;
-
    package Naming is
-
 --      for Implementation ("check_file") use "checkfil.ada";
 --      for Specification ("enum_check") use "enumchek.ada" at 1;
 --      for Implementation ("enum_check") use "enumchek.ada" at 2;
