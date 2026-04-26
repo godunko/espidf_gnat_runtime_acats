@@ -1,0 +1,35 @@
+name = "espidf_gnat_runtime_acats_bundle_1"
+description = "ESPIDF GNAT Runtime ACATS bundle #1"
+version = "0.2.0-dev"
+
+authors = ["Vadim Godunko"]
+maintainers = ["Vadim Godunko <vgodunko@gmail.com>"]
+maintainers-logins = ["godunko"]
+licenses = "Apache-2.0 WITH LLVM-exception"
+tags = []
+
+[configuration.variables]
+ESP32_MCU = { type='Enum', values=['esp32c3', 'esp32s3'], default='esp32c3' }
+
+[configuration]
+generate_ada = false
+generate_c = false
+generate_gpr = true
+
+[[depends-on]]
+a0b_base = "*"
+a0b_tools = "*"
+espidf_gnat_runtime = "*"
+gnat_riscv64_elf = "^15"
+
+[[actions]]
+type = "pre-build"
+command = ["a0b-runtime",
+           "--bb-runtimes=../../../crates/bb-runtimes/",
+           "--svd=../../../svd/esp32c3.svd",
+           "--runtime-description=../../../runtime-esp32c3.json",
+           "--no-startup"]
+
+[[pins]]
+a0b_tools = { path='../../../crates/a0b-tools' }
+espidf_gnat_runtime = { path='../../..' }
