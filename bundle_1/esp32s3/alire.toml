@@ -8,6 +8,9 @@ maintainers-logins = ["godunko"]
 licenses = "Apache-2.0 WITH LLVM-exception"
 tags = []
 
+[configuration.variables]
+ESP32_MCU = { type='Enum', values=['esp32c3', 'esp32s3'], default='esp32s3' }
+
 [configuration]
 generate_ada = false
 generate_c = false
