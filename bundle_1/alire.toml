@@ -23,9 +23,9 @@ xtensa_dynconfig = "*"
 [[actions]]
 type = "pre-build"
 command = ["a0b-runtime",
-           "--bb-runtimes=crates/bb-runtimes/",
-           "--svd=crates/espidf_gnat_runtime/svd/esp32s3.svd",
-           "--runtime-description=crates/espidf_gnat_runtime/runtime-esp32s3.json",
+           "--bb-runtimes=../../../crates/bb-runtimes/",
+           "--svd=../../../crates/espidf_gnat_runtime/svd/esp32s3.svd",
+           "--runtime-description=../../../crates/espidf_gnat_runtime/runtime-esp32s3.json",
            "--no-startup"]
 
 [[pins]]
