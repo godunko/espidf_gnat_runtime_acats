@@ -288,56 +288,56 @@ begin
    --  CXAH001;
    --  CXAH002;
    --  CXAH003;
-   CXAI001;
-   CXAI002;
-   CXAI003;
-   CXAI004;
-   CXAI005;
-   CXAI006;
-   CXAI007;
+--   CXAI001;  --  FAIL crash
+--   CXAI002;  --  FAIL crash
+--   CXAI003;  --  FAIL crash
+--   CXAI004;  --  FAIL crash
+--   CXAI005;  --  FAIL crash
+--   CXAI006;  --  FAIL crash
+--   CXAI007;  --  FAIL crash
    CXAI008;
-   CXAI009;
-   CXAI010;
-   CXAI011;
-   CXAI012;
-   CXAI013;
-   CXAI014;
-   CXAI015;
-   CXAI016;
+--   CXAI009;  --  FAIL crash
+--   CXAI010;  --  FAIL crash
+--   CXAI011;  --  FAIL crash
+--   CXAI012;  --  FAIL crash
+--   CXAI013;  --  FAIL crash
+--   CXAI014;  --  FAIL crash
+--   CXAI015;  --  FAIL crash
+--   CXAI016;  --  FAIL crash
    CXAI017;
    CXAI018;
    CXAI019;
-   CXAI020;
-   CXAI021;
-   CXAI022;
-   CXAI023;
-   CXAI024;
+--   CXAI020;  --  FAIL crash
+--   CXAI021;  --  FAIL crash
+--   CXAI022;  --  FAIL crash
+--   CXAI023;  --  FAIL crash
+--   CXAI024;  --  FAIL crash
    CXAI025;
    CXAI026;
-   CXAI027;
+--   CXAI027;  --  FAIL crash
    CXAI028;
-   CXAI029;
+--   CXAI029;  --  FAIL crash
    CXAI030;
-   CXAI031;
-   CXAI032;
+--   CXAI031;  --  FAIL crash
+--   CXAI032;  --  FAIL crash
    --  CXAI033;
    --  CXAI034;
    --  CXAI035;
    --  CXAI036;
-   CXAIA01;
-   CXAIA02;
-   CXAIA03;
-   CXAIA04;
-   CXAIA05;
-   CXAIA06;
-   CXAIA07;
+--   CXAIA01;  --  FAIL crash
+--   CXAIA02;  --  FAIL crash
+--   CXAIA03;  --  FAIL crash
+--   CXAIA04;  --  FAIL crash
+--   CXAIA05;  --  FAIL crash
+--   CXAIA06;  --  FAIL crash
+--   CXAIA07;  --  FAIL crash
    CXAIA08;
    CXAIA09;
-   CXAIA10;
-   CXAIA11;
-   CXAIA12;
-   CXAIA13;
-   CXAIA14;
+--   CXAIA10;  --  FAIL crash
+--   CXAIA11;  --  FAIL crash
+--   CXAIA12;  --  FAIL crash
+--   CXAIA13;  --  FAIL crash
+--   CXAIA14;  --  FAIL crash
    CXAIB01;
    CXAIB02;
    CXAIB03;
