@@ -1,6 +1,7 @@
 #!/bin/bash
 
 log=$1
+suffix=$2
 
 total=`cat log | grep ' ,.,.' | wc -l`
 passed=`cat log | grep ' ==== [0-9a-zA-Z_]* PASSED' | wc -l`
@@ -106,28 +107,28 @@ while IFS= read -r line; do
   esac
 done < $log
 
-echo "{" >> ctrf.json
-echo "  \"reportFormat\": \"CTRF\"," >> ctrf.json
-echo "  \"specVersion\": \"0.0.0\"," >> ctrf.json
-echo "  \"results\": {" >> ctrf.json
-echo "    \"tool\": {" >> ctrf.json
-echo "      \"name\": \"ACATS\"" >> ctrf.json
-echo "    }," >> ctrf.json
-echo "    \"summary\": {" >> ctrf.json
-echo "      \"tests\": ${summary_tests}," >> ctrf.json
-echo "      \"passed\": ${summary_passed}," >> ctrf.json
-echo "      \"failed\": ${summary_failed}," >> ctrf.json
-echo "      \"pending\": 0," >> ctrf.json
-echo "      \"skipped\": ${summary_skipped}," >> ctrf.json
-echo "      \"other\": 0," >> ctrf.json
-echo "      \"start\": 0," >> ctrf.json
-echo "      \"stop\": 0" >> ctrf.json
-echo "    }," >> ctrf.json
-echo "    \"tests\": [" >> ctrf.json
-cat sections.tests >> ctrf.json
-echo "" >> ctrf.json
-echo "    ]" >> ctrf.json
-echo "  }" >> ctrf.json
-echo "}" >> ctrf.json
+echo "{" >> ctrf${suffix}.json
+echo "  \"reportFormat\": \"CTRF\"," >> ctrf${suffix}.json
+echo "  \"specVersion\": \"0.0.0\"," >> ctrf${suffix}.json
+echo "  \"results\": {" >> ctrf${suffix}.json
+echo "    \"tool\": {" >> ctrf${suffix}.json
+echo "      \"name\": \"ACATS\"" >> ctrf${suffix}.json
+echo "    }," >> ctrf${suffix}.json
+echo "    \"summary\": {" >> ctrf${suffix}.json
+echo "      \"tests\": ${summary_tests}," >> ctrf${suffix}.json
+echo "      \"passed\": ${summary_passed}," >> ctrf${suffix}.json
+echo "      \"failed\": ${summary_failed}," >> ctrf${suffix}.json
+echo "      \"pending\": 0," >> ctrf${suffix}.json
+echo "      \"skipped\": ${summary_skipped}," >> ctrf${suffix}.json
+echo "      \"other\": 0," >> ctrf${suffix}.json
+echo "      \"start\": 0," >> ctrf${suffix}.json
+echo "      \"stop\": 0" >> ctrf${suffix}.json
+echo "    }," >> ctrf${suffix}.json
+echo "    \"tests\": [" >> ctrf${suffix}.json
+cat sections.tests >> ctrf${suffix}.json
+echo "" >> ctrf${suffix}.json
+echo "    ]" >> ctrf${suffix}.json
+echo "  }" >> ctrf${suffix}.json
+echo "}" >> ctrf${suffix}.json
 
 rm -f sections.tests
