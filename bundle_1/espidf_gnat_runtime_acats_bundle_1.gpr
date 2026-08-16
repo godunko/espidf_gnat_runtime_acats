@@ -7,6 +7,7 @@ with "config/espidf_gnat_runtime_acats_bundle_1_config.gpr";
 project ESPIDF_GNAT_Runtime_ACATS_Bundle_1 is
 
    case ESPIDF_GNAT_Runtime_ACATS_Bundle_1_Config.ESP32_MCU is
+      when "esp32"   => for Target use "xtensa-esp32-elf";
       when "esp32c3" => for Target use "riscv64-elf";
       when "esp32s3" => for Target use "xtensa-esp32-elf";
    end case;
