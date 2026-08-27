@@ -20,7 +20,7 @@ generate_gpr = true
 a0b_base = "*"
 a0b_tools = "*"
 espidf_gnat_runtime = "*"
-gnat_riscv64_elf = "^15"
+gnat_riscv64_elf = "^16"
 
 [[actions]]
 type = "pre-build"
