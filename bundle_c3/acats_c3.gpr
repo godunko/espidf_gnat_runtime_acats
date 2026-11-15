@@ -14,7 +14,7 @@ project ACATS_C3 is
       for Switches ("Ada") use ("-D4k", "-Q3", "-Mapp_main");
    end Binder;
    package Compiler is
-      for Switches ("Ada") use ("-g", "-O2");
+      for Switches ("Ada") use ("-fstack-check", "-g", "-O2");
    end Compiler;
    package Linker is
       for Default_Switches ("Ada") use ("-Wl,-r", "-nostdlib");
