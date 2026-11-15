@@ -1,0 +1,36 @@
+name = "acats_c7"
+version = "0.1.0-dev"
+description = "ACATS group C7 on embedded ESP32-S3"
+
+authors = ["Vadim Godunko"]
+maintainers = ["Vadim Godunko <vgodunko@gmail.com>"]
+maintainers-logins = ["godunko"]
+licenses = "GPL-3.0-or-later"
+tags = ["embedded", "esp", "esp-idf", "esp32s3"]
+
+[configuration]
+generate_ada = false
+generate_c = false
+generate_gpr = true
+
+[environment]
+XTENSA_GNU_CONFIG.set = "${CRATE_ROOT}/../../xtensa-dynconfig/xtensa-dynconfig/xtensa_esp32s3.so"
+
+[[actions]]
+type = "pre-build"
+command = ["a0b-runtime",
+           "--bb-runtimes=../../bb-runtimes/",
+           "--svd=../../../components/espidf_gnat_runtime/svd/esp32s3.svd",
+           "--runtime-description=../../../components/espidf_gnat_runtime/runtime-embedded-esp32s3.json",
+           "--no-startup"]
+
+[[depends-on]]
+a0b_tools = "*"
+espidf_gnat_runtime = "*"
+gnat_xtensa_esp32_elf = "^16"
+xtensa_dynconfig = "*"
+
+[[pins]]
+a0b_tools = { path = "../../a0b-tools" }
+espidf_gnat_runtime = { path = "../../../components/espidf_gnat_runtime" }
+xtensa_dynconfig = { path = "../../xtensa-dynconfig" }
