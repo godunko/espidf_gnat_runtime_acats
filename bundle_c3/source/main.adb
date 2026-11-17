@@ -374,6 +374,7 @@ procedure Main is
    procedure ESP_Restart
      with Import, Convention => C, External_Name => "esp_restart";
 begin
+   c39006f3m;
    c32001a;
    c32001b;
    c32001c;
@@ -670,7 +671,6 @@ begin
    c39006c0m;
    c39006d;
    c39006e;
-   c39006f3m;
    c39006g;
    c39007a;
    c39007b;
